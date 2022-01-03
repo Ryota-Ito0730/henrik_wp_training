@@ -31,43 +31,75 @@ function echo_page_url()
   <link rel="stylesheet" href="<?php echo_absolute_path(); ?>/css/effect.css">
   <?php wp_head(); ?>
 </head>
+<!-- topページのふるい分けに使う↓ -->
+<?php if (is_home()) : ?>
 
-<body id="top">
-  <header>
-    <div class="inner">
-      <div class="logo smooth">
-        <a href="index.html">
-          <img src="<?php echo_absolute_path(); ?>img/logo.svg" alt="スウェディッシュマッサージで最高の癒しを提供するリラクゼーションサロン・ヘンリック">
-        </a>
-      </div>
-      <nav>
-        <div class="menu_btn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="pc_menu_body">
-          <ul>
-            <li><a href="<?php echo_page_url(); ?>">TOP</a></li>
-            <li><a href="<?php echo_page_url(); ?>roots">Henrikができるまで</a></li>
-            <li><a href="<?php echo_page_url(); ?>massage">スウェディッシュマッサージについて</a></li>
-            <li><a href="<?php echo_page_url(); ?>course">コースのご案内</a></li>
-            <li><a href="<?php echo_page_url(); ?>stuff">スタッフ紹介</a></li>
-            <li><a href="<?php echo_page_url(); ?>contact">お問い合わせ</a></li>
-          </ul>
-        </div>
-        <div class="sp_menu_body">
-          <ul class="smooth">
-            <li class="smooth"><a href="<?php echo_page_url(); ?>">TOP</a></li>
-            <li class="smooth"><a href="<?php echo_page_url(); ?>">Henrikができるまで</a></li>
-            <li class="smooth"><a href="<?php echo_page_url(); ?>">スウェディッシュマッサージ<br class="mb_style_2">について</a></li>
-            <li class="smooth"><a href="<?php echo_page_url(); ?>">コースのご案内</a></li>
-            <li class="smooth"><a href="<?php echo_page_url(); ?>stuff">スタッフ紹介</a></li>
-            <li class="smooth"><a href="<?php echo_page_url(); ?>">お問い合わせ</a></li>
-            <li class="smooth res_link"><a href="<?php echo_page_url(); ?>">ご予約</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <a class="res_btn smooth" href="reservation.html">ご予約</a>
+  <body id="top">
+    <!-- 特定の投稿ページのふるいわけに使う↓ -->
+  <?php elseif (is_single('covid19')) : ?>
+
+    <body id="covid19">
+      <!-- 特定の固定ページのふるいわけに使う↓ -->
+    <?php elseif (is_page('massage')) : ?>
+
+      <body id="massage">
+
+      <?php elseif (is_post_type_archive('stuff')) : ?>
+
+        <body id="stuff">
+          <!-- カスタム投稿のふるい分けに使う↓ -->
+        <?php elseif (is_post_type_archive('course')) : ?>
+
+          <body id="course">
+
+          <?php elseif (is_page('contact')) : ?>
+
+            <body id="contact">
+
+            <?php elseif (is_page('reservation')) : ?>
+
+              <body id="reservation">
+
+              <?php elseif (is_page('roots')) : ?>
+
+                <body id="roots">
+
+                <?php endif; ?>
+                <header>
+                  <div class="inner">
+                    <div class="logo smooth">
+                      <a href="index.html">
+                        <img src="<?php echo_absolute_path(); ?>img/logo.svg" alt="スウェディッシュマッサージで最高の癒しを提供するリラクゼーションサロン・ヘンリック">
+                      </a>
+                    </div>
+                    <nav>
+                      <div class="menu_btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                      <div class="pc_menu_body">
+                        <ul>
+                          <li><a href="<?php echo_page_url(); ?>">TOP</a></li>
+                          <li><a href="<?php echo_page_url(); ?>roots">Henrikができるまで</a></li>
+                          <li><a href="<?php echo_page_url(); ?>massage">スウェディッシュマッサージについて</a></li>
+                          <li><a href="<?php echo_page_url(); ?>course">コースのご案内</a></li>
+                          <li><a href="<?php echo_page_url(); ?>stuff">スタッフ紹介</a></li>
+                          <li><a href="<?php echo_page_url(); ?>contact">お問い合わせ</a></li>
+                        </ul>
+                      </div>
+                      <div class="sp_menu_body">
+                        <ul class="smooth">
+                          <li class="smooth"><a href="<?php echo_page_url(); ?>">TOP</a></li>
+                          <li class="smooth"><a href="<?php echo_page_url(); ?>roots">Henrikができるまで</a></li>
+                          <li class="smooth"><a href="<?php echo_page_url(); ?>massage">スウェディッシュマッサージ<br class="mb_style_2">について</a></li>
+                          <li class="smooth"><a href="<?php echo_page_url(); ?>course">コースのご案内</a></li>
+                          <li class="smooth"><a href="<?php echo_page_url(); ?>stuff">スタッフ紹介</a></li>
+                          <li class="smooth"><a href="<?php echo_page_url(); ?>contact">お問い合わせ</a></li>
+                          <li class="smooth res_link"><a href="<?php echo_page_url(); ?>reservation">ご予約</a></li>
+                        </ul>
+                      </div>
+                    </nav>
+                  </div>
+                </header>
+                <a class="res_btn smooth" href="<?php echo_page_url(); ?>reservation">ご予約</a>

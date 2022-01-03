@@ -1,4 +1,4 @@
-<?php get_header('contact'); ?>
+<?php get_header(); ?>
 <div class="breadcrum clearfix" id="under_bread_wrapp">
   <ul>
     <li><a href="index.html">TOP</a></li>

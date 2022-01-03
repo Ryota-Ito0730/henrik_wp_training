@@ -31,7 +31,7 @@
       <h2>ニュース</h2>
       <p>(週に1-2回更新予定)</p>
       <p>
-        <a href="covid19.html">新型コロナウイルス感染症対策について</a>
+        <a href="<?php echo_page_url(); ?>info/covid19">新型コロナウイルス感染症対策について</a>
       </p>
       <ul>
         <li>

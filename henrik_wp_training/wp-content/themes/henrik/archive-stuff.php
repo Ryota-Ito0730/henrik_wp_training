@@ -1,6 +1,4 @@
-<?php get_header('stuff'); ?>
-
-
+<?php get_header(); ?>
 <?php
 $stuff_post_ids = ['69', '72', '74', '76'];
 $args = [

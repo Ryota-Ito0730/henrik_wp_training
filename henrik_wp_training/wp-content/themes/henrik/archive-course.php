@@ -1,4 +1,4 @@
-<?php get_header('course'); ?>
+<?php get_header(); ?>
 <?php
 $course_post_ids = ['110', '112', '113', '114'];
 $args = [
